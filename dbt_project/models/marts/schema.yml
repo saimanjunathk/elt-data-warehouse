@@ -1,0 +1,36 @@
+version: 2
+models:
+  - name: mart_sales
+    description: "Business-ready sales analytics table"
+    columns:
+      - name: order_id
+        description: "Unique order identifier"
+        tests:
+          - unique
+          - not_null
+      - name: customer_id
+        description: "Customer identifier"
+        tests:
+          - not_null
+      - name: amount
+        description: "Order amount"
+        tests:
+          - not_null
+  - name: mart_customers
+    description: "Business-ready customer analytics table"
+    columns:
+      - name: customer_id
+        description: "Unique customer identifier"
+        tests:
+          - unique
+          - not_null
+      - name: customer_value_tier
+        description: "Customer value classification"
+        tests:
+          - not_null
+          - accepted_values:
+              values:
+                - High Value
+                - Mid Value
+                - Low Value
+                - No Orders

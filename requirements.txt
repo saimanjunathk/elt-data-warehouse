@@ -1,0 +1,10 @@
+pandas==2.1.0
+requests==2.31.0
+sqlalchemy==2.0.20
+duckdb==0.9.1
+dbt-core==1.6.0
+dbt-duckdb==1.6.0
+great-expectations==0.17.15
+streamlit==1.27.0
+pytest==7.4.0
+faker==19.6.2

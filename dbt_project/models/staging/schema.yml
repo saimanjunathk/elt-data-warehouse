@@ -1,0 +1,74 @@
+version: 2
+models:
+  - name: stg_orders
+    description: "Cleaned and standardized orders from raw source"
+    columns:
+      - name: order_id
+        description: "Unique identifier for each order"
+        tests:
+          - unique          
+          - not_null        
+      - name: customer_id
+        description: "Foreign key to customers"
+        tests:
+          - not_null        
+      - name: amount
+        description: "Order amount in dollars"
+        tests:
+          - not_null        
+      - name: status
+        description: "Order status"
+        tests:
+          - not_null
+          - accepted_values:    
+              values:
+                - completed
+                - pending
+                - cancelled
+                - refunded
+  - name: stg_customers
+    description: "Cleaned and standardized customers"
+    columns:
+      - name: customer_id
+        description: "Unique identifier for each customer"
+        tests:
+          - unique
+          - not_null
+      - name: email
+        description: "Customer email address"
+        tests:
+          - unique          
+          - not_null
+      - name: customer_segment
+        description: "Customer segment based on signup date"
+        tests:
+          - not_null
+          - accepted_values:
+              values:
+                - New
+                - Regular
+                - Veteran
+  - name: stg_products
+    description: "Cleaned and standardized products"
+    columns:
+      - name: product_id
+        description: "Unique identifier for each product"
+        tests:
+          - unique
+          - not_null
+      - name: price_tier
+        description: "Product price tier"
+        tests:
+          - accepted_values:
+              values:
+                - Budget
+                - Mid-Range
+                - Premium
+      - name: stock_status
+        description: "Current stock status"
+        tests:
+          - accepted_values:
+              values:
+                - In Stock
+                - Low Stock
+                - Out of Stock
