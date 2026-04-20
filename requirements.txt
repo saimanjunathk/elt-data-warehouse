@@ -1,7 +1,8 @@
 duckdb==0.9.1
 pandas==2.1.0
-streamlit==1.27.0
+streamlit==1.38.0
 plotly==5.17.0
 faker==19.6.2
 requests==2.31.0
 sqlalchemy==2.0.20
+pillow==10.0.0
